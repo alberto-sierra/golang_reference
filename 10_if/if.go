@@ -25,7 +25,7 @@ func whatis(thing interface{}) {
      If not, ok will be false and t will be the zero value of type T,
      and no panic occurs.
   */
-  if _, ok := thing.(int); ok {
+  if _, ok := thing.(int); ok { // <- Variables can also be initialized here
     fmt.Println("It's an integer!")
   } else if _, ok := thing.(string); ok {
     fmt.Println("It's a string!")
