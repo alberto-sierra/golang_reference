@@ -13,9 +13,9 @@ func main() {
 	fmt.Println("3: " + string(h)) // <- printed as a string
 
 	/*
-					   UTF-8 is an 4-byte encoding that fits
-		         entirely in the int32 type.
-				     A rune is an alias for the int32 type.
+	   UTF-8 is an 4-byte encoding that fits
+	   entirely in the int32 type.
+	   A rune is an alias for the int32 type.
 	*/
 	e := 'e' // <- simple quotes for rune
 	fmt.Printf("4: %s (%v)\n", string(e), e)
