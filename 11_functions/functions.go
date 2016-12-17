@@ -33,7 +33,7 @@ func average(n ...float64) float64 { // <- n becomes a []float64
   /* range loops over an array, slice, string, or map and can also
   read from a channel. It returns a k,v pair.
   */
-  for _, value := range n { // <- discard the key, because n is a slice.
+  for _, value := range n { // <- discard the key, keep the value.
     total += value
   }
   return total / float64(len(n)) // division by zero returns NaN!!
