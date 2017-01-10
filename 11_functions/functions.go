@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+// init() is a special function that runs before anything else
+func init() {
+  // normally the init() function is used for program initialization
+  fmt.Println("ignite!")
+}
+
 func dummy(parameter string)  { // <- a function declares a parameter
   return // does nothing
 }
