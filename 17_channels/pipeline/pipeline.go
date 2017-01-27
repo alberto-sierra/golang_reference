@@ -2,14 +2,16 @@ package main
 
 import "fmt"
 
-// https://blog.golang.org/pipelines
+/*
+  https://blog.golang.org/pipelines
+*/
 
 func main() {
   // main() sets up the pipeline
   consumer(processing(generator()))
 }
 
-func generator() chan int {
+func generator() <-chan int {
   // the generator function, launches a go routine.
   out := make(chan int)
   go func() {
@@ -21,7 +23,12 @@ func generator() chan int {
   return out
 }
 
-func processing(cx chan int) chan int {
+/*
+  because we know how the channels are going to be used,
+  we can specify it in the declaration to constrain its direction.
+*/
+
+func processing(cx <-chan int) <-chan int {
   // the intermediate stages process the data launching a go routine.
   out := make(chan int)
   go func() {
@@ -33,7 +40,7 @@ func processing(cx chan int) chan int {
   return out
 }
 
-func consumer(cx chan int) {
+func consumer(cx <-chan int) {
   // the final stage consumes the data
   for v := range cx {
     fmt.Println("Value:", v)
